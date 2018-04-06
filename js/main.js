@@ -20,6 +20,10 @@ function init() {
         .catch(console.log);
 }
 
+function itemClick(id) {
+    console.log(id);
+}
+
 function populateList(data) {
 
     // Clear list
@@ -28,18 +32,26 @@ function populateList(data) {
     }
 
     data.forEach(element => {
+        const idSplit = element._links.self.href.split("/");
+        const id = idSplit[idSplit.length - 1];
+
         let div = document.createElement("div");
+        div.id = id;
         div.className = "result";
 
+        let left = document.createElement("div");
+        left.className = "left";
+
         let home = document.createElement("div");
-        home.classList = "result";
+        home.classList = "home bold";
         home.innerHTML = element.homeTeamName;
 
         let vs = document.createElement("div");
+        vs.className = "versus";
         vs.innerHTML = "vs.";
 
         let away = document.createElement("div");
-        away.classList = "result";
+        away.classList = "away bold";
         away.innerHTML = element.awayTeamName;
 
         let thumbDown = document.createElement("div");
@@ -54,13 +66,13 @@ function populateList(data) {
 
         });
 
-        div.appendChild(home);
-        div.appendChild(vs);
-        div.appendChild(away);
+        left.appendChild(home);
+        left.appendChild(vs);
+        left.appendChild(away);
+        div.appendChild(left);
         div.appendChild(thumbDown);
         div.appendChild(thumbUp);
-        console.log(div);
-        
+        div.addEventListener("click", (e) => itemClick(id));
         resultsDiv.appendChild(div);
     });
 }

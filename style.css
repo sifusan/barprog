@@ -34,3 +34,17 @@ body, html {
     display: flex;
     font-size: 1.25em;
 }
+
+.left {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.versus {
+    margin: 0 1em;
+}
+
+.bold {
+    font-weight: 800;
+}

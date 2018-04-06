@@ -3,7 +3,7 @@
 body, html {
     margin: 0;
     padding: 1.5em;
-    background-color: #333;
+    background: -webkit-linear-gradient(top, #b4ddb4 0%,#83c783 17%,#52b152 33%,#008a00 74%,#008a00 74%,#005700 100%,#002400 100%,#005700 100%);
     width: calc(100% - 3em);
     height: calc(100% - 3em);
     font-family: 'Open Sans', sans-serif;
@@ -32,5 +32,41 @@ body, html {
     padding: 1em;
     background: white;
     display: flex;
+    flex-direction: column;
     font-size: 1.25em;
+}
+
+.top {
+    display: flex;
+}
+
+.bottom {
+    margin-top: .5em;
+    text-align: center;
+}
+
+.left {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.versus {
+    margin: 0 1em;
+}
+
+.bold {
+    font-weight: 800;
+}
+
+.thumb {
+    cursor: pointer;
+    width: 27px;
+    height: 27px;
+}
+
+.thumbs {
+    font-size: 1.175em;
+    font-weight: bold;
+    margin: 0 .25em;
 }

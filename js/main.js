@@ -26,12 +26,4 @@ function filter(query, matches) {
     if (query === "") return matches;
     
 }
-function readFromDatabaseOnce(value) {
-    let leadsRef = database.ref(value);
-    leadsRef.on('value', function (snapshot) {
-        snapshot.forEach(function (childSnapshot) {
-            let childData = childSnapshot.val();
-            console.log(childData);
-        });
-    });
-}
+

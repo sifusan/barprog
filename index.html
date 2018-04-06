@@ -3,7 +3,6 @@
         <meta charset="UTF-8">
         <title>Barprog!</title>
         <link rel="stylesheet" href="style.css">
-        <script src="js/main.js"></script>
         <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
         <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-database.js"></script>
@@ -21,7 +20,21 @@
         firebase.initializeApp(config);
         var database = firebase.database();
         readFromDatabaseOnce("data");
+        console.log("test");
+
+        function readFromDatabaseOnce(value) {
+            console.log("inFunction");
+            console.log(value);
+            let leadsRef = database.ref(value);
+            leadsRef.on('value', function (snapshot) {
+                snapshot.forEach(function (childSnapshot) {
+                    let childData = childSnapshot.val();
+                    console.log(childData);
+                });
+            });
+        }
         </script>
+        <script src="js/main.js"></script>
     </head>
     <body>
         <div class="container">

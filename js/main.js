@@ -34,14 +34,24 @@ function populateList(data) {
     data.forEach(element => {
         const idSplit = element._links.self.href.split("/");
         const id = idSplit[idSplit.length - 1];
+        const date = new Date(element.date);
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+        const dateStr = date.toLocaleDateString("nb-no", options);
 
         let div = document.createElement("div");
         div.id = id;
         div.className = "result";
 
+        let top = document.createElement("div");
+        top.className = "top";
+
+        let bottom = document.createElement("div");
+        bottom.className = "bottom";
+        bottom.innerHTML = dateStr;
+
         let left = document.createElement("div");
         left.className = "left";
-
+        
         let home = document.createElement("div");
         home.classList = "home bold";
         home.innerHTML = element.homeTeamName;
@@ -51,17 +61,23 @@ function populateList(data) {
         vs.innerHTML = "vs.";
 
         let away = document.createElement("div");
-        away.classList = "away bold";
+        away.className = "away bold";
         away.innerHTML = element.awayTeamName;
 
-        let thumbDown = document.createElement("div");
-        thumbDown.classList = "thumb-down";
+        let thumbDown = document.createElement("img");
+        thumbDown.className = "thumb";
+        thumbDown.src = "img/down.png";
         thumbDown.addEventListener("click", () => {
 
         });
 
-        let thumbUp = document.createElement("div");
-        thumbUp.classList = "thumb-up";
+        let thumbCount = document.createElement("div");
+        thumbCount.className = "thumbs";
+        thumbCount.innerHTML = "0";
+
+        let thumbUp = document.createElement("img");
+        thumbUp.className = "thumb";
+        thumbUp.src = "img/up.png";
         thumbUp.addEventListener("click", () => {
 
         });
@@ -69,9 +85,13 @@ function populateList(data) {
         left.appendChild(home);
         left.appendChild(vs);
         left.appendChild(away);
-        div.appendChild(left);
-        div.appendChild(thumbDown);
-        div.appendChild(thumbUp);
+        top.appendChild(left);
+        top.appendChild(thumbDown);
+        top.appendChild(thumbCount);
+        top.appendChild(thumbUp);
+
+        div.appendChild(top);
+        div.appendChild(bottom);
         div.addEventListener("click", (e) => itemClick(id));
         resultsDiv.appendChild(div);
     });

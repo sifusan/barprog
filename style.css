@@ -32,7 +32,17 @@ body, html {
     padding: 1em;
     background: white;
     display: flex;
+    flex-direction: column;
     font-size: 1.25em;
+}
+
+.top {
+    display: flex;
+}
+
+.bottom {
+    margin-top: .5em;
+    text-align: center;
 }
 
 .left {
@@ -47,4 +57,16 @@ body, html {
 
 .bold {
     font-weight: 800;
+}
+
+.thumb {
+    cursor: pointer;
+    width: 27px;
+    height: 27px;
+}
+
+.thumbs {
+    font-size: 1.175em;
+    font-weight: bold;
+    margin: 0 .25em;
 }

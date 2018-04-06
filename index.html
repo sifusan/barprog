@@ -4,6 +4,24 @@
         <title>Barprog!</title>
         <link rel="stylesheet" href="style.css">
         <script src="js/main.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase-database.js"></script>
+        <script>
+        // Initialize Firebase
+        // TODO: Replace with your project's customized code snippet
+        var config = {
+            apiKey: "AIzaSyBWf3NNqFt1EmUKsEIFD2QZwNmL_RwOS1U",
+            authDomain: "barprog-6f2be.firebaseapp.com",
+            databaseURL: "https://barprog-6f2be.firebaseio.com",
+            projectId: "barprog-6f2be",
+            storageBucket: "barprog-6f2be.appspot.com",
+            messagingSenderId: "889201306262"
+        };
+        firebase.initializeApp(config);
+        </script>
+
+
     </head>
     <body>
         <div class="container">

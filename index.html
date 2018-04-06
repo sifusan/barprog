@@ -21,6 +21,10 @@
         let database = firebase.database();
         readFromDatabaseOnce("data");
         console.log("test");
+        let testId = 12312414;
+        getValueFromId(testId);
+        add1ToId(testId);
+        getValueFromId(testId);
 
         function readFromDatabaseOnce(value) {
             console.log("inFunction");
@@ -33,6 +37,37 @@
                 });
             });
         }
+
+
+        function add1ToId(id) {
+            let oldValue = getValueFromId(id);
+
+            let newChild = id + "" : 
+            ref.child("Posts").child("12345TG4").update({ Likes: 74 });
+
+         //   let oldValue = getValueFromId(id);
+           // firebase.database().ref().child(id).setValue(oldValue + 1);
+//            var updates = {};
+  //          updates['/' + id] = (value - 1);
+    //        return firebase.database().ref().update(updates);
+        }
+
+        function remove1FromId(id) {
+            let value = getValueFromId(id);
+
+            var updates = {};
+            updates['/' + id] = (value - 1);
+            return firebase.database().ref().update(updates);
+        }
+
+        function getValueFromId(id) {
+            var idValueRef = firebase.database().ref(id);
+            idValueRef.on('value', function(snapshot) {
+                console.log(snapshot.val());
+                return snapshot.val();
+            });
+        }
+
         </script>
         <script src="js/main.js"></script>
     </head>

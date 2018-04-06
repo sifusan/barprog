@@ -79,3 +79,5 @@ function filter(query, matches) {
         return eq(m.awayTeamName, query) || eq(m.homeTeamName, query);
     });
 }
+
+

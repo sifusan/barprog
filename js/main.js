@@ -20,6 +20,13 @@ function populateList(data) {
     console.log(matches);
     
     resultsDiv.innerHTML = "";
+
+    matches.fixtures.forEach(element => {
+        let div = document.createElement("div");
+        div.className = "result";
+        div.innerHTML = element.homeTeamName;
+        resultsDiv.appendChild(div);
+    });
 }
 
 function filter(query, matches) {

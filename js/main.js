@@ -15,7 +15,7 @@ function init() {
         .then(res => res.json())
         .then(json => {
             matches = json;
-            populateList(matches)
+            populateList(matches.fixtures)
         })
         .catch(console.log);
 }
@@ -30,7 +30,37 @@ function populateList(data) {
     data.forEach(element => {
         let div = document.createElement("div");
         div.className = "result";
-        div.innerHTML = element.homeTeamName;
+
+        let home = document.createElement("div");
+        home.classList = "result";
+        home.innerHTML = element.homeTeamName;
+
+        let vs = document.createElement("div");
+        vs.innerHTML = "vs.";
+
+        let away = document.createElement("div");
+        away.classList = "result";
+        away.innerHTML = element.awayTeamName;
+
+        let thumbDown = document.createElement("div");
+        thumbDown.classList = "thumb-down";
+        thumbDown.addEventListener("click", () => {
+
+        });
+
+        let thumbUp = document.createElement("div");
+        thumbUp.classList = "thumb-up";
+        thumbUp.addEventListener("click", () => {
+
+        });
+
+        div.appendChild(home);
+        div.appendChild(vs);
+        div.appendChild(away);
+        div.appendChild(thumbDown);
+        div.appendChild(thumbUp);
+        console.log(div);
+        
         resultsDiv.appendChild(div);
     });
 }

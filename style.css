@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
-
 body, html {
     margin: 0;
     padding: 1.5em;
-    background: -webkit-linear-gradient(top, #b4ddb4 0%,#83c783 17%,#52b152 33%,#008a00 74%,#008a00 74%,#005700 100%,#002400 100%,#005700 100%);
+    /*background: -webkit-linear-gradient(top,  0%,#005700 100%, 100%, 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #b4ddb4, #008a00);
     width: calc(100% - 3em);
     height: calc(100% - 3em);
     font-family: 'Open Sans', sans-serif;

@@ -9,7 +9,7 @@
         <script>
         // Initialize Firebase
         // TODO: Replace with your project's customized code snippet
-        var config = {
+        let config = {
             apiKey: "AIzaSyBWf3NNqFt1EmUKsEIFD2QZwNmL_RwOS1U",
             authDomain: "barprog-6f2be.firebaseapp.com",
             databaseURL: "https://barprog-6f2be.firebaseio.com",
@@ -18,7 +18,7 @@
             messagingSenderId: "889201306262"
         };
         firebase.initializeApp(config);
-        var database = firebase.database();
+        let database = firebase.database();
         readFromDatabaseOnce("data");
         console.log("test");
 

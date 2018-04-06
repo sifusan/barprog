@@ -18,9 +18,9 @@
             messagingSenderId: "889201306262"
         };
         firebase.initializeApp(config);
+        var database = firebase.database();
+        readFromDatabaseOnce("data");
         </script>
-
-
     </head>
     <body>
         <div class="container">
